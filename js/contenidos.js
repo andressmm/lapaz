@@ -3,64 +3,51 @@
          const contenidos = {
 
  
-      info: `   <section class="triathlon-info-section">
-        <div class="triathlon-info-header">
-            <h1 class="section-title">Información del Evento</h1>
-            <div class="section-icon">👇</div>
-          
+      info: `   <section class="card-section">
+        <div class="card-header">
+            <h1 class="card-title">Información del Evento</h1>
+            <div class="card-header-icon">👇</div>
         </div>
 
-        <div class="information-links-container">
-            <article class="info-card info-card--infantiles">
-                
-                <div class="info-card__content">
-                    <div class="info-card__text">
-                        <a href="?i=infantiles" class="info-card__link">
-                            Información Infantiles
-                        </a>
-                        <div class="info-card__date">Viernes 17/01/2026</div>
-                    </div>
-                    <div class="info-card__icon">🧒</div>
+        <div class="card-container">
+            <article class="card card--infantiles">
+                <div class="card-text">
+                    <a href="?i=infantiles" class="card-link">
+                        Información Infantiles
+                    </a>
+                    <div class="card-date">Viernes 17/01/2026</div>
                 </div>
+                <div class="card-icon">🧒</div>
             </article>
 
-            <article class="info-card info-card--mayores">
-               
-                <div class="info-card__content">
-                    <div class="info-card__text">
-                        <a href="?i=mayores" class="info-card__link">
-                            Información Mayores
-                        </a>
-                        <div class="info-card__date">Sábado 18/01/2026</div>
-                    </div>
-                    <div class="info-card__icon">👤</div>
+            <article class="card card--mayores">
+                <div class="card-text">
+                    <a href="?i=mayores" class="card-link">
+                        Información Mayores
+                    </a>
+                    <div class="card-date">Sábado 18/01/2026</div>
                 </div>
+                <div class="card-icon">👤</div>
             </article>
 
-            <article class="info-card info-card--elite">
-               
-                <div class="info-card__content">
-                    <div class="info-card__text">
-                        <a href="elite.pdf" target="_blank" class="info-card__link">
-                            Categoría ELITE
-                        </a>
-                        <div class="info-card__date">Reglamento especializado</div>
-                    </div>
-                    <div class="info-card__icon">🏆</div>
+            <article class="card card--elite">
+                <div class="card-text">
+                    <a href="elite.pdf" target="_blank" class="card-link">
+                        Categoría ELITE
+                    </a>
+                    <div class="card-date">Reglamento especializado</div>
                 </div>
+                <div class="card-icon">🏆</div>
             </article>
 
-            <article class="info-card info-card--transferencias">
-                
-                <div class="info-card__content">
-                    <div class="info-card__text">
-                        <a href="transferencias.pdf" target="_blank" class="info-card__link">
-                            Transferencia de Inscripciones
-                        </a>
-                        <div class="info-card__date">Proceso y documentación</div>
-                    </div>
-                    <div class="info-card__icon">🔄</div>
+            <article class="card card--transferencias">
+                <div class="card-text">
+                    <a href="transferencias.pdf" target="_blank" class="card-link">
+                        Transferencia de Inscripciones
+                    </a>
+                    <div class="card-date">Proceso y documentación</div>
                 </div>
+                <div class="card-icon">🔄</div>
             </article>
         </div>
     </section>`,

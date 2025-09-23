@@ -353,13 +353,35 @@ footer {
     }
 
 
-      .info-card {
-        margin:auto;
-        max-width: 90%;   
-    }
+    /*-- tarjetas seccion info movil 768 */
+
+       .card-section {
+                max-width: 100%;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                max-width: 400px; /* Limitar ancho en móvil */
+                margin: 0 auto; /* Centrar las tarjetas */
+            }
+
+            .card-header {
+                padding: 1.2rem;
+                max-width: 400px; /* Limitar ancho del header también */
+                margin: 0 auto 2rem; /* Centrar header */
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1.25rem;
+            }
+        }
 
 
-}
 
 @media (max-width: 480px) {
     .welcome-title {
@@ -367,9 +389,6 @@ footer {
     }
 
     
-      .triathlon-info-section {
-        max-width: 90%;   
-    }
     .date-subtitle {
         font-size: 1rem;
     }
@@ -378,35 +397,25 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         display: grid;
     }
+/*--- tarjetas seccion info MOVIL */
 
-
-          .information-links-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .triathlon-info-header {
-                padding: 1.5rem;
-            }
-            
-            .info-card__content {
-                padding: 1.25rem;
+   .card-container {
+                max-width: 320px; /* Aún más estrecho en móviles pequeños */
             }
 
-   .section-title {
-                font-size: 1.5rem;
+            .card-header {
+                max-width: 320px;
             }
-            
-            .section-icon {
-                font-size: 2rem;
-            }
-            
-            .info-card__link {
+
+            .card-title {
                 font-size: 1rem;
             }
+
+            .card-header-icon {
+                font-size: 1.5rem;
+            }
+
+
 
 }
 
@@ -511,131 +520,81 @@ footer {
 
 
 
-
-
-   .triathlon-info-section {
-            max-width: 1000px;
-            margin: 15px auto;
-            
+/*-- estilos tarjetas de seccion info --*/
+  .card-section {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .triathlon-info-header {
-         
-            padding: 1rem;
+        /* Header simplificado */
+        .card-header {
+  
+            padding: 2rem;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: .5rem;
         }
 
-        .section-title {
-            font-size: 2.2rem;
+        .card-title {
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
+            color: #1a202c;
+            margin-bottom: 1rem;
         }
 
-        .section-icon {
-            font-size: 2.5rem;
-            margin: 1rem 0;
+        .card-header-icon {
+            font-size: 2rem;
         }
 
- 
-
-        /* Contenedor de tarjetas */
-        .information-links-container {
+        /* Grid de tarjetas */
+        .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Tarjeta simplificada */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
             gap: 1rem;
         }
 
-        /* Tarjetas simplificadas */
-        .info-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-            border-left: 4px solid #667eea;
-        }
-
-        .info-card:hover {
+        .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .info-card--infantiles {
-            border-left-color: #10b981;
-        }
+        /* Colores por categoría */
+        .card--infantiles { border-left: 4px solid #10b981; }
+        .card--mayores { border-left: 4px solid #f59e0b; }
+        .card--elite { border-left: 4px solid #3b82f6; }
+        .card--transferencias { border-left: 4px solid #ef4444; }
 
-        .info-card--mayores {
-            border-left-color: #f59e0b;
-        }
-
-        .info-card--elite {
-            border-left-color: #3b82f6;
-        }
-
-        .info-card--transferencias {
-            border-left-color: #ef4444;
-        }
-
-        .info-card__content {
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .info-card__text {
+        .card-text {
             flex: 1;
         }
 
-        .info-card__link {
+        .card-link {
             text-decoration: none;
-            color: #2d3748;
+            color: #1a202c;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
-        .info-card__date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 0.25rem;
+        .card-date {
+            color: #6b7280;
+            font-size: 0.875rem;
         }
 
-        .info-card__icon {
-            font-size: 1.8rem;
-            margin-left: 1rem;
+        .card-icon {
+            font-size: 1.5rem;
         }
-
-        .info-card__badge {
-            background: #667eea;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
-        .info-card {
-            position: relative;
-        }
-
-        .info-card--infantiles .info-card__badge {
-            background: #10b981;
-        }
-
-        .info-card--mayores .info-card__badge {
-            background: #f59e0b;
-        }
-
-        .info-card--elite .info-card__badge {
-            background: #3b82f6;
-        }
-
-        .info-card--transferencias .info-card__badge {
-            background: #ef4444;
-        }
-
