@@ -28,6 +28,10 @@ body {
     display:none;
 }
 
+a{
+    color:var(--primary-color);
+}
+
 nav {
     background: rgba(145, 215, 168, 0.786);
     backdrop-filter: blur(2px);
@@ -266,13 +270,13 @@ footer {
 }
 
 .footer-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     margin-bottom: .5rem;
 }
 
 .footer-subtitle {
-    font-size: 1rem;
+    font-size: .9rem;
     opacity: .8;
 }
 
@@ -524,6 +528,7 @@ footer {
   .card-section {
             max-width: 800px;
             margin: 0 auto;
+            margin-bottom:15px;
         }
 
         /* Header simplificado */
@@ -598,3 +603,49 @@ footer {
         .card-icon {
             font-size: 1.5rem;
         }
+
+.summary_content{
+   
+    user-select: none;
+    width:clamp(300px,95%,600px);
+    margin:auto;   
+   
+}
+
+
+        
+summary{
+    text-align: center;
+    cursor:pointer;
+    font-weight: 600;
+    padding:5px;
+        position:relative;
+
+}
+
+
+
+details{
+    border:2px solid var(--secondary-color);
+    border-radius:8px;
+    padding:6px;
+    color:var(--primary-color);
+    margin:5px;
+    background: #fff;
+    font-weight: 400;
+    box-shadow: 2px 2px 0px var(--shadows);
+}
+
+   
+        summary::marker{
+     
+            content:'';
+     }
+        
+     summary::-webkit-details-marker {
+        display: none;
+    }   
+
+    .ul__categorias{
+    margin-left:20px;
+}
