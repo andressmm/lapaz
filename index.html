@@ -7,33 +7,16 @@
     <link rel="stylesheet" href="./estilos/estilo.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="https://www.trialapaz.com.ar/tlp/TriaLaPaz.png" alt="Tria La Paz Logo">
-            </div>
-            
-            <!-- Checkbox invisible para controlar el menú móvil -->
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            
-            <!-- Label que actúa como botón hamburguesa -->
-            <label for="menu-toggle" class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            
-            <ul class="nav-links">
-                <li><a href="#portada">🏠 Portada</a></li>
-                <li><a href="#info">ℹ️ Info</a></li>
-                <li><a href="#inscripcion">📝 Inscripción</a></li>
-                <li><a href="#participantes">👥 Participantes</a></li>
-                <li><a href="#cronograma">📅 Cronograma</a></li>
-            </ul>
-        </div>
-    </nav>
+   <div id="nav"></div>
+ <script>
+      fetch("./src/nav.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("nav").innerHTML = data;
+        });
+  </script>
 
-    <main>
+    <main class="main">
 
         <div class="loading" id="loading">
             
@@ -41,7 +24,7 @@
 
         </div>
 
-        <div class="portada">
+      <div class="portada">
         <div class="hero-image" id="portada">
             <img src="https://trialapaz.com.ar/tria2026.jpg" alt="Triatlón Internacional de La Paz 2026">
         </div>
@@ -74,7 +57,7 @@
                         <span>Facebook</span>
                     </a>
                     <a href="#" class="social-link">
-                        <div class="icon icon-email"></div>
+                        <div class="icon icon-email" onclick="mostrarmail();"></div>
                         <span>Mail</span>
                     </a>
                 </div>
@@ -84,12 +67,16 @@
      
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-title">Tria Internacional de La Paz, 16 y 17 Enero 2026</div>
-            <div class="footer-subtitle">La Paz, E.R, Argentina ❤️ Capital Nacional del Triatlón</div>
-        </div>
-    </footer>
+<div id="footer"></div>
+ <script>
+      fetch("./src/footer.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("footer").innerHTML = data;
+        });
+  </script>
     <script src="./js/main.js"></script>
+        <script src="./js/contenidos.js"></script>
+
 </body>
 </html>

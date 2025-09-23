@@ -99,7 +99,7 @@ info=()=>{
     let tarjetas;
 
     tarjetas=`   
-<div class="faq"> 
+<div class="insc_container"> 
 
             <div class="info__grupos infoInsc">
                 <div class="info__grupos-titulo">          
@@ -788,3 +788,6 @@ const cambiarElite = () => {
     });
 };
 
+
+
+const mostrarmail = () => alert("✉️CONTACTANOS!\ninfotrialapaz@gmail.com");

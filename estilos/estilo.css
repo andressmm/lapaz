@@ -4,6 +4,7 @@
     --shadows:#48e5;
     --content:#48e2;
     --texto:#3A384F;
+    
 
 }
 * {
@@ -11,6 +12,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat"; 
+    text-decoration: none;
 }
 
 body {
@@ -349,6 +351,13 @@ footer {
     .media-section {
         padding: 2rem 1rem;
     }
+
+
+      .triathlon-info-section {
+        max-width: 90%;   
+    }
+
+
 }
 
 @media (max-width: 480px) {
@@ -357,6 +366,9 @@ footer {
     }
 
     
+      .triathlon-info-section {
+        max-width: 90%;   
+    }
     .date-subtitle {
         font-size: 1rem;
     }
@@ -365,11 +377,36 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         display: grid;
     }
-}
 
-/* Smooth scrolling nativo */
-html {
-    scroll-behavior: smooth;
+
+          .information-links-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .triathlon-info-header {
+                padding: 1.5rem;
+            }
+            
+            .info-card__content {
+                padding: 1.25rem;
+            }
+
+   .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-icon {
+                font-size: 2rem;
+            }
+            
+            .info-card__link {
+                font-size: 1rem;
+            }
+
 }
 
 
@@ -401,7 +438,7 @@ html {
 
 
 
-.faq{
+.insc_container{
     user-select: none;
     width:clamp(300px,95%,600px);
     margin:auto;   
@@ -469,3 +506,135 @@ html {
     }
 
 /*------- info inscripciones -----*/
+
+
+
+
+
+
+   .triathlon-info-section {
+            max-width: 1000px;
+            margin: 15px auto;
+            
+        }
+
+        .triathlon-info-header {
+         
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+
+ 
+
+        /* Contenedor de tarjetas */
+        .information-links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        /* Tarjetas simplificadas */
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card--infantiles {
+            border-left-color: #10b981;
+        }
+
+        .info-card--mayores {
+            border-left-color: #f59e0b;
+        }
+
+        .info-card--elite {
+            border-left-color: #3b82f6;
+        }
+
+        .info-card--transferencias {
+            border-left-color: #ef4444;
+        }
+
+        .info-card__content {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .info-card__text {
+            flex: 1;
+        }
+
+        .info-card__link {
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .info-card__date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .info-card__icon {
+            font-size: 1.8rem;
+            margin-left: 1rem;
+        }
+
+        .info-card__badge {
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .info-card {
+            position: relative;
+        }
+
+        .info-card--infantiles .info-card__badge {
+            background: #10b981;
+        }
+
+        .info-card--mayores .info-card__badge {
+            background: #f59e0b;
+        }
+
+        .info-card--elite .info-card__badge {
+            background: #3b82f6;
+        }
+
+        .info-card--transferencias .info-card__badge {
+            background: #ef4444;
+        }
+
