@@ -353,7 +353,8 @@ footer {
     }
 
 
-      .triathlon-info-section {
+      .info-card {
+        margin:auto;
         max-width: 90%;   
     }
 
