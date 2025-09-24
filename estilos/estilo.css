@@ -92,6 +92,9 @@ nav {
     padding: 5px;
 }
 
+
+
+
 .mobile-menu span {
     width: 25px;
     height: 3px;
@@ -288,12 +291,14 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(255, 255, 255, .98);
+        background:  rgba(145, 215, 168);
         backdrop-filter: blur(10px);
         flex-direction: column;
         padding: 1rem 2rem;
         box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
         border-top: 1px solid rgba(0, 0, 0, .1);
+        
+    
     }
  
 
@@ -649,3 +654,159 @@ details{
     .ul__categorias{
     margin-left:20px;
 }
+
+
+
+/*- parts.html */
+
+  .link_grupos {
+            text-align: center;
+            margin: 20px 0;
+            /* Removido display:none - siempre visible */
+        }
+
+        .link_grupos a {
+            text-decoration: none;
+            color: var(--primary-color);
+            margin: 0 5px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .link_grupos a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .link_grupos a.active {
+            font-weight: bold;
+            background-color: #ff5722;
+            color: white;
+        }
+
+        .container-tabla {
+            /* Removido display:none - siempre visible */
+            margin: auto;
+            width: 90%;
+            max-width: 1200px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tabla-header {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: var(--primary-color);
+            padding: 12px 8px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .tabla-item {
+            padding: 12px 8px;
+            border-bottom: 1px solid var(--shadows);
+            display: flex;
+            align-items: center;
+        }
+
+        .tabla-item:nth-child(5n+1), 
+        .tabla-item:nth-child(5n+2), 
+        .tabla-item:nth-child(5n+3), 
+        .tabla-item:nth-child(5n+4), 
+        .tabla-item:nth-child(5n) {
+            background-color: #fafafa;
+        }
+
+        .estado_data, .nro_data, .nro {
+            text-align: center;
+            justify-content: center;
+        }
+
+        .estado_data img {
+            width: 40px;
+            object-fit: contain;
+        }
+
+        .loading, .loading-message, .error-message {
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .loading-message {
+            font-size: 1.2rem;
+            font-weight: 500;
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+        }
+
+        .error-message {
+            background-color: #ffebee;
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Indicador de carga más visible */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .stats {
+            text-align: center;
+            margin: 10px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container-tabla {
+                width: 98%;
+                grid-template-columns: 0.5fr 2fr 1fr 0.5fr;
+                font-size: 14px;
+            }
+
+            .ciudad_data {
+                display: none; /* Ocultar ciudad en móviles */
+            }
+
+            .tabla-header.ciudad {
+                display: none;
+            }
+
+            .link_grupos a {
+                font-size: 12px;
+                padding: 6px 8px;
+                margin: 2px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+
+/* - fin parts.html - */

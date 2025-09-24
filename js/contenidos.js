@@ -59,13 +59,113 @@
       `,
   
       cronograma: `
-        <h2>📅 Cronograma</h2>
-        <ul>
-          <li>09:00 - Apertura</li>
-          <li>10:00 - Inicio de la competencia</li>
-          <li>13:00 - Almuerzo</li>
-          <li>15:00 - Premiación</li>
-        </ul>
+
+              <section class="card-section">
+        <div class="card-header">
+            <h1 class="card-title">Cronograma</h1>
+            <div class="card-header-icon">👇</div>
+        </div>
+
+        <div class="summary_content">
+
+         <details>
+            <summary>
+                Inscripciones por Internet ✏️
+            </summary>
+            <div class="content">
+                <p><strong>15/12/2024</strong> - Cierre Inscripciones Online (o hasta agotar cupo, lo que ocurra primera)</p>
+                <p><strong>30/11/2024</strong> - Fecha Limite para cambios</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                Entrega de kits 🛍️
+            </summary>
+            <div class="content">
+                <strong>Para Mayores:</strong>
+                <p>Jueves 16/01/2025 | 19 a 22 hs - Oficina de Turismo (Puerto La Paz)</p>
+                <p>Viernes 17/01/2025 | 8.30 a 21 hs - Oficina de Turismo (Puerto La Paz)</p>
+                <br><strong>Para Infantiles:</strong>
+                <p>Jueves 16/01/2025 | 19 a 22 hs - Oficina de Turismo (Puerto La Paz)</p>
+                <p>Viernes 17/01/2025 | 8.30 a 11.30 hs - Oficina de Turismo (Puerto La Paz)</p>
+            </div>
+        </details>
+
+
+        <details>
+            <summary>
+                Tria Infantil 👶
+            </summary>
+            <div class="content">
+                <strong>Viernes 17/01/2025</strong>
+                <p><strong>12:00 Hs</strong> -
+                Habilitación Área de Transición ( todas las categorías )</p>
+                <p><strong>13:30 Hs</strong> -
+                Cierre Area de Transición</p>
+                <p><strong>14:00 Hs</strong> -
+                Largada Categorias Infantiles</p>
+                <p><strong>17:45 Hs</strong> -
+                Finalización competencias Tria Infantil</p>
+                <p><strong>18:00 Hs</strong> -
+                CEREMONIA DE ENTREGA DE PREMIOS TRIA INFANTIL en Puerto Local</p>
+            </div>
+        </details>
+
+
+        <details>
+            <summary>
+                Tria Mayores 🙋‍♂️
+            </summary>
+            <div class="content">
+                <strong>Sabado 18/01/2025</strong>
+            <p><strong>9:00 Hs</strong>
+                Habilitación de AREA DE TRANSICION Estandar – Juveniles – Sprint - MTB - PARATRIATLON
+                </p><p><strong>11:30 Hs</strong>
+                Cierre AREA DE TRANSICION Estandar – Juveniles – Sprint – MTB - PARATRIATLON
+            </p><p><strong>14:00 Hs</strong>
+                Traslado competidores categorías: JUVENILES – SPRINT – MTB y PARATRIATLON
+            </p><p><strong>14:55 Hs</strong>
+                Largada competidores categorías: JUVENILES – SPRINT – MTB y PARATRIATLON (desde Puerto Marquez)
+            </p>
+            <p><strong>15:20 Hs</strong>
+                Traslado competidores ESTANDAR rumbo al punto de partida
+            </p>
+            <p><strong>16:10 Hs</strong>
+                LARGADA TRIATLON – ESTANDAR Varones y Damas (desde Paraje Barranca Negra)
+            </p>
+            <p><strong>20:00 Hs</strong>
+                Finalización Tiempo Máximo de Competencia para ESTANDAR
+            <p><strong>22:00 Hs</strong> -
+                    CEREMONIA DE ENTREGA DE PREMIOS en Puerto Local</p>    
+            </div>
+        </details>
+<!--
+          <details>
+            <summary>
+            Triatlon de las leyendas 🌟
+            </summary>
+            <div class="content">
+                <p><strong>Viernes 17/01</strong> - Al termino de la premiacion de infantiles, se realizará el "Triatlon de Las Leyendas" en el marco del 40° Aniversario del Triatlon de La Paz.<br><br>Aquellos triatletas que en 1985 compitieron en lo que fue la 1° Edición del Triatlon de La Paz, rememorarán en un tria simbolico, 40 años despues, los inicios de ésta competencia.</p>
+
+            </div>
+        </details>
+
+-->
+
+
+        <details>
+            <summary>
+            Extras 🎁
+            </summary>
+            <div class="content">
+                <p><strong>Viernes 17/01 - 21.00 Hs</strong> - Cena de Carbohidratos - Salon Polifuncional (Echague y Moreno)</p>
+
+            </div>
+        </details>
+</div>
+    </section>
+
       `,
 
         
@@ -433,21 +533,12 @@
 
     };
 
-    
-
 function clk(e) {
-  e.preventDefault(); // Evita el salto al #
-  const section = e.target.id;
-           
-    if (section==="participantes"){
-          fetch("./src/parts.html")
-        .then(res => res.text())
-        .then(data => {
-          document.querySelector(".main").innerHTML = data;
-        });
-    }
-     else 
-    {
-      document.querySelector('.main').innerHTML = contenidos[section];
-    }
+    e.preventDefault();
+    const section = e.target.id;
+    
+  
+        document.querySelector('.main').innerHTML = contenidos[section] || '<p>Contenido no disponible.</p>';
+    
 }
+

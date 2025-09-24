@@ -1,7 +1,9 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
+                <a href="index.html">
                 <img src="https://www.trialapaz.com.ar/tlp/TriaLaPaz.png" alt="Tria La Paz Logo">
+                </a>
             </div>
             
             <!-- Checkbox invisible para controlar el menú móvil -->
@@ -18,9 +20,45 @@
                 <li><a href="index.html" class="navlink">🏠 Portada</a></li>
                 <li><a href="#" class="navlink" onclick="clk(event);" id="info">ℹ️ Info</a></li>
                 <li><a href="#" class="navlink" onclick="clk(event);" id="inscripcion">📝 Inscripción</a></li>
-                <li><a href="#" class="navlink" onclick="clk(event);" id="participantes">👥 Participantes</a></li>
+                <li><a href="parts.html">👥 Participantes</a></li>
                 <li><a href="#" class="navlink" onclick="clk(event);" id="cronograma">📅 Cronograma</a></li>
             </ul>
         </div>
     </nav>
 
+
+    <script>
+            function cerrarMenuMovil() {
+        const menuToggle = document.getElementById('menu-toggle');
+        if (menuToggle) {
+            menuToggle.checked = false;
+        }
+    }
+
+    // Esperar a que el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cerrar el menú móvil al hacer clic en cualquier enlace del menú
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Cerrar el menú inmediatamente
+                cerrarMenuMovil();
+            });
+        });
+
+        // También cerrar cuando se hace clic fuera del menú
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('nav');
+            const menuToggle = document.getElementById('menu-toggle');
+            
+            // Si el clic fue fuera del nav y el menú está abierto
+            if (!nav.contains(e.target) && menuToggle.checked) {
+                cerrarMenuMovil();
+            }
+        });
+    });
+
+    // Función adicional para cerrar el menú desde cualquier lugar
+    window.cerrarMenuMovil = cerrarMenuMovil;
+    </script>

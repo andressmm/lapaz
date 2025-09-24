@@ -17,7 +17,9 @@
         .then(res => res.text())
         .then(data => {
           document.getElementById("nav").innerHTML = data;
+          inicializarMenuMovil();
         });
+
   </script>
 
     <main class="main">
@@ -81,6 +83,42 @@
   </script>
     <script src="./js/main.js"></script>
         <script src="./js/contenidos.js" ></script>
+     <script>
+        // Función mejorada para cerrar el menú móvil
+        function cerrarMenuMovil() {
+            const menuToggle = document.getElementById('menu-toggle');
+            if (menuToggle) {
+                menuToggle.checked = false;
+            }
+        }
 
+        // Función para inicializar el menú móvil
+        function inicializarMenuMovil() {
+            // Cerrar el menú móvil al hacer clic en cualquier enlace del menú
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Cerrar el menú inmediatamente
+                    cerrarMenuMovil();
+                });
+            });
+
+            // También cerrar cuando se hace clic fuera del menú
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav');
+                const menuToggle = document.getElementById('menu-toggle');
+                
+                // Si el clic fue fuera del nav y el menú está abierto
+                if (nav && !nav.contains(e.target) && menuToggle && menuToggle.checked) {
+                    cerrarMenuMovil();
+                }
+            });
+        }
+
+        // Función global disponible desde cualquier lugar
+        window.cerrarMenuMovil = cerrarMenuMovil;
+    </script>
+</script>
 </body>
 </html>

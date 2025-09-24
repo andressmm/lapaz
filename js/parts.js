@@ -1,191 +1,4 @@
- <style>
-        .link_grupos {
-            text-align: center;
-            margin: 20px 0;
-            /* Removido display:none - siempre visible */
-        }
-
-        .link_grupos a {
-            text-decoration: none;
-            color: var(--primary-color);
-            margin: 0 5px;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .link_grupos a:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .link_grupos a.active {
-            font-weight: bold;
-            background-color: #ff5722;
-            color: white;
-        }
-
-        .container-tabla {
-            /* Removido display:none - siempre visible */
-            margin: auto;
-            width: 90%;
-            max-width: 1200px;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .tabla-header {
-            background: #f8f9fa;
-            font-weight: 600;
-            color: var(--primary-color);
-            padding: 12px 8px;
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        .tabla-item {
-            padding: 12px 8px;
-            border-bottom: 1px solid var(--shadows);
-            display: flex;
-            align-items: center;
-        }
-
-        .tabla-item:nth-child(5n+1), 
-        .tabla-item:nth-child(5n+2), 
-        .tabla-item:nth-child(5n+3), 
-        .tabla-item:nth-child(5n+4), 
-        .tabla-item:nth-child(5n) {
-            background-color: #fafafa;
-        }
-
-        .estado_data, .nro_data, .nro {
-            text-align: center;
-            justify-content: center;
-        }
-
-        .estado_data img {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-        }
-
-        .loading, .loading-message, .error-message {
-            text-align: center;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .loading-message {
-            font-size: 1.2rem;
-            font-weight: 500;
-            background-color: #e3f2fd;
-            color: var(--primary-color);
-        }
-
-        .error-message {
-            background-color: #ffebee;
-            color: var(--error-color);
-            border: 1px solid var(--error-color);
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-            font-style: italic;
-        }
-
-        /* Indicador de carga más visible */
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .stats {
-            text-align: center;
-            margin: 10px 0;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .container-tabla {
-                width: 100%;
-                grid-template-columns: 0.5fr 2fr 1fr 0.5fr;
-                font-size: 14px;
-            }
-
-            .ciudad_data {
-                display: none; /* Ocultar ciudad en móviles */
-            }
-
-            .tabla-header.ciudad {
-                display: none;
-            }
-
-            .link_grupos a {
-                font-size: 12px;
-                padding: 6px 8px;
-                margin: 2px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-        }
-    
- </style>
- 
- <div class="loading" id="loading">
-        <div class="loading-spinner"></div>
-        Cargando participantes...
-    </div>
-
-    <h1>Listado de participantes</h1>
-    
-    <div class="link_grupos" id="gruposNav" style="display: none;">
-        <a href="#" data-grupo="ESTANDAR" class="link_parts active">ESTANDAR</a>
-        <a href="#" data-grupo="SPRINT" class="link_parts">SPRINT</a>
-        <a href="#" data-grupo="JUVENILES" class="link_parts">JUVENILES</a>
-        <a href="#" data-grupo="MTB" class="link_parts">MTB</a>
-        <a href="#" data-grupo="PARATRIATLON" class="link_parts">PARATRIA</a>
-        <a href="#" data-grupo="INFANTILES" class="link_parts">INFANTILES</a>
-    </div>
-
-    <div class="stats" id="stats" style="display: none;"></div>
-
-    <div class="container-tabla" id="tablaResultados" style="display: none;">
-        <div class="tabla-header nro">NRO</div>
-        <div class="tabla-header participante">PARTICIPANTE</div>
-        <div class="tabla-header ciudad">CIUDAD</div>
-        <div class="tabla-header categ">CATEGORIA</div>
-        <div class="tabla-header estado">ESTADO</div>
-    </div>
-
-    <div class="loading-message" id="loadingMore" style="display: none;">
-        <div class="loading-spinner"></div>
-        Cargando más participantes...
-    </div>
-
-    <div class="error-message" id="errorMessage" style="display: none;"></div>
-
-    <script>
-        class ParticipantsViewer {
+   class ParticipantsViewer {
             constructor() {
                 this.page = 1;
                 this.resultsPerPage = 50;
@@ -273,29 +86,41 @@
             }
 
             filterResults(grupo) {
-                this.currentGroup = grupo;
-                this.page = 1;
-                this.allLoaded = false;
+    this.currentGroup = grupo;
+    this.page = 1;
+    this.allLoaded = false;
 
-                // Actualizar enlace activo
-                document.querySelectorAll('.link_parts').forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('data-grupo') === grupo);
-                });
+    // Actualizar enlace activo
+    document.querySelectorAll('.link_parts').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('data-grupo') === grupo);
+    });
 
-                // Filtrar resultados
-                this.filteredResults = this.allResults.filter(participante => 
-                    participante.grupo === grupo
-                );
+    // Filtrar resultados
+    this.filteredResults = this.allResults.filter(participante => 
+        participante.grupo === grupo
+    );
 
-                // Limpiar tabla
-                this.clearResults();
-                
-                // Actualizar estadísticas
-                this.updateStats();
-                
-                // Cargar primera página
-                this.loadMoreResults();
-            }
+    // Limpiar tabla
+    this.clearResults();
+
+    // Actualizar estadísticas
+    this.updateStats();
+
+    if (this.filteredResults.length === 0) {
+        this.allLoaded = true; // 🚨 Importante: marcar que ya no hay nada para cargar
+        this.elements.loadingMore.style.display = 'none';
+        // Podés mostrar un mensaje de "Sin resultados" si querés
+        const noResultsDiv = document.createElement('div');
+        noResultsDiv.className = 'no-results';
+        noResultsDiv.textContent = '';
+        this.elements.tablaResultados.appendChild(noResultsDiv);
+        return;
+    }
+
+    // Cargar primera página
+    this.loadMoreResults();
+}
+
 
             loadMoreResults() {
                 if (this.loading || this.allLoaded) return;
@@ -352,7 +177,8 @@
                     
                     if (participante.estado) {
                         const img = document.createElement('img');
-                        img.src = `./src/${participante.estado}.png`;
+                        
+                        img.src = `./img/${participante.estado}.png`;
                         img.alt = participante.estado;
                         img.onerror = () => {
                             img.style.display = 'none';
@@ -383,7 +209,7 @@
             updateStats() {
                 const total = this.filteredResults.length;
                 const groupName = this.currentGroup;
-                this.elements.stats.textContent = `Mostrando ${total} participantes en ${groupName}`;
+                //this.elements.stats.textContent = `${groupName}`;
             }
 
             showInterface() {
@@ -410,4 +236,3 @@
         document.addEventListener('DOMContentLoaded', () => {
             new ParticipantsViewer();
         });
-    </script>
