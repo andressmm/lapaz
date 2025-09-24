@@ -783,6 +783,16 @@ details{
         }
 
         @media (max-width: 768px) {
+
+        summary::marker{
+     
+            content:'';
+     }
+        
+     summary::-webkit-details-marker {
+        display: none;
+    }   
+
             .container-tabla {
                 width: 98%;
                 grid-template-columns: 0.5fr 2fr 1fr 0.5fr;
