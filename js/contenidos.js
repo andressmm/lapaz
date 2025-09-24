@@ -542,7 +542,7 @@
 
     
         <section class="form" id="contact">
-            <form class="form__form" id="contactForm" action="?i=inscripcion2" method="POST">
+            <form class="form__form" id="contactForm" action="inscripcion2.html" method="POST">
                 <div class="form__input-container">
                     <input type="text" id="dniInput" name='dni' placeholder="Ingresa tu dni aquí" required>
                     <div id="error-message" class="error-message"> ⚠️ Ingresa solo números</div>
@@ -551,7 +551,7 @@
                     <input type="submit" value="Siguiente" class="button">
                 </div>
             </form>
-<p class='trfcode'>🔄 <span class='subrayado'><a href='#' onclick="clk(event);" id="trf">Tengo un código de transferencia</a></span></p>
+<p class='trfcode'>🔄 <span class='subrayado'><a href='#' onclick="clk(event);" id="cronograma">Tengo un código de transferencia</a></span></p>
          
          
           <div class="globo-info">
