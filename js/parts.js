@@ -71,7 +71,7 @@
                     }
 
                     this.allResults = data;
-                    console.log(`Cargados ${data.length} participantes`);
+                    //console.log(`Cargados ${data.length} participantes`);
                     
                     // Mostrar interfaz y cargar grupo por defecto
                     this.showInterface();

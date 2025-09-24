@@ -527,18 +527,131 @@
         
         
     </section>    
-        `
+        `,
+
+
+
+    inscripcion:`    <section class="card-section">
+        <div class="card-header">
+            <h2 class="icon_saludo">👋</h2>
+            <h1>Hola!</h1>
+            <h3>Ingresá tu numero de documento:</h3>
+
+        </div>
+
+
+    
+        <section class="form" id="contact">
+            <form class="form__form" id="contactForm" action="?i=inscripcion2" method="POST">
+                <div class="form__input-container">
+                    <input type="text" id="dniInput" name='dni' placeholder="Ingresa tu dni aquí" required>
+                    <div id="error-message" class="error-message"> ⚠️ Ingresa solo números</div>
+                </div>
+                <div class="form__input-container">
+                    <input type="submit" value="Siguiente" class="button">
+                </div>
+            </form>
+<p class='trfcode'>🔄 <span class='subrayado'><a href='#' onclick="clk(event);" id="trf">Tengo un código de transferencia</a></span></p>
+         
+         
+          <div class="globo-info">
+            Ingresá aquí si reemplazas a un participante y tenés un código de transferencia.
+        </div>
+         
+         </section>
+         </div>` ,   
+
+
+
+
+          trf:`    <section class="card-section">
+        <div class="card-header">
+           <h2 class="icon">🔄</h2>
+            <h1>Alta por transferencia de inscripción</h1>
+            <h3>A continuación ingresa el código de transferencia proporcionado por el otro participante.</h3>
+
+        </div>
+
+
+    
+        
+        <section class="form" id="contact">
+            <form class="form__form" id="contactForm" action="?i=trf2" method="POST">
+                <div class="form__input-container">
+                    <input type="text" id="dniInput" name='dni' placeholder="Ingresa aqui el codigo de transferencia" required>
+                    <div id="error-message" class="error-message"> ⚠️ Ingresa solo números</div>
+                </div>
+                <div class="form__input-container">
+                    <input type="submit" value="Siguiente" class="button">
+                </div>
+            </form>
+         
+         <p class='trfcode'>➕<span class='subrayado'><a href='transferencias.pdf' target='_blank'>Info sobre transferencia de inscripciones</a></span></p>
+         
+         
+         </section>
+         </div>` ,
 
 
 
     };
 
+    contenidos.mayores_h = contenidos.mayores;
+    contenidos.infantiles_h = contenidos.infantiles;
+    contenidos.inscripcion_h = contenidos.inscripcion;
+
 function clk(e) {
     e.preventDefault();
     const section = e.target.id;
     
+     const tlpID = localStorage.getItem('tlpID');
+
+
+
+if (section==='inscripcion' && tlpID) { 
+    window.location.href = 'index.html';
+    return } 
+
+    
   
         document.querySelector('.main').innerHTML = contenidos[section] || '<p>Contenido no disponible.</p>';
-    
+     if (section === 'inscripcion') {
+        // Esperar un momento para asegurarse de que el DOM esté actualizado
+        setTimeout(inicializarValidacionDNI, 10);
+    }
 }
 
+
+
+
+
+
+
+
+function inicializarValidacionDNI() {
+    const dniInput = document.getElementById('dniInput');
+    const errorMessage = document.getElementById('error-message');
+    const contactForm = document.getElementById('contactForm');
+    
+    // Verificar que los elementos existan antes de agregar los listeners
+    if (dniInput && errorMessage) {
+        
+        dniInput.addEventListener('input', function() {
+            // Verifica si el valor del input contiene solo números
+            if (/^\d*$/.test(dniInput.value)) {
+                errorMessage.style.display = 'none';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        });
+    }
+    
+    if (contactForm && errorMessage) {
+        contactForm.addEventListener('submit', function(event) {
+            // Si hay un error, evita el envío del formulario
+            if (errorMessage.style.display === 'block') {
+                event.preventDefault(); // Evita el envío del formulario
+            }
+        });
+    }
+}
