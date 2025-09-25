@@ -53,11 +53,7 @@
     </section>`,
 
 
-      inscripcion: `
-        <h2>📝 Inscripción</h2>
-        <p>La inscripción estará abierta hasta el 30 de septiembre. ¡No te quedes afuera!</p>
-      `,
-  
+   
       cronograma: `
 
               <section class="card-section">
@@ -542,16 +538,16 @@
 
     
         <section class="form" id="contact">
-            <form class="form__form" id="contactForm" action="inscripcion2.html" method="POST">
+            <form class="form__form" id="contactForm" >
                 <div class="form__input-container">
                     <input type="text" id="dniInput" name='dni' placeholder="Ingresa tu dni aquí" required>
                     <div id="error-message" class="error-message"> ⚠️ Ingresa solo números</div>
                 </div>
                 <div class="form__input-container">
-                    <input type="submit" value="Siguiente" class="button">
+                    <input type="submit" value="Siguiente" class="button" id='siguiente'>
                 </div>
             </form>
-<p class='trfcode'>🔄 <span class='subrayado'><a href='#' onclick="clk(event);" id="cronograma">Tengo un código de transferencia</a></span></p>
+<p class='trfcode'>🔄 <span class='subrayado'><a href='#' onclick="clk(event);" id="trf">Tengo un código de transferencia</a></span></p>
          
          
           <div class="globo-info">
@@ -648,6 +644,11 @@ function inicializarValidacionDNI() {
     
     if (contactForm && errorMessage) {
         contactForm.addEventListener('submit', function(event) {
+            
+            const siguiente=document.getElementById('siguiente');
+            siguiente.value='⏳ Cargando...';
+            siguiente.disabled=true;
+
             // Si hay un error, evita el envío del formulario
             if (errorMessage.style.display === 'block') {
                 event.preventDefault(); // Evita el envío del formulario
@@ -655,3 +656,6 @@ function inicializarValidacionDNI() {
         });
     }
 }
+
+
+
